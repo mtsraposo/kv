@@ -46,6 +46,7 @@ defmodule KV.Registry do
     case lookup(names, name) do
       {:ok, bucket} ->
         {:reply, bucket, {names, refs}}
+
       :error ->
         {:ok, bucket} = DynamicSupervisor.start_child(KV.BucketSupervisor, KV.Bucket)
         ref = Process.monitor(bucket)
