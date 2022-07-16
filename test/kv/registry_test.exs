@@ -1,7 +1,7 @@
 defmodule KV.RegistryTest do
   use ExUnit.Case, async: true
 
-  setup do
+  setup context do
     _ = start_supervised!({KV.Registry, name: context.test})
     %{registry: context.test}
   end
@@ -20,6 +20,8 @@ defmodule KV.RegistryTest do
     KV.Registry.create(registry, "shopping")
     {:ok, bucket} = KV.Registry.lookup(registry, "shopping")
     Agent.stop(bucket)
+
+    _ = KV.Registry.create(registry, "ensure_registry_processed_down_message")
     assert KV.Registry.lookup(registry, "shopping") == :error
   end
 
@@ -28,6 +30,7 @@ defmodule KV.RegistryTest do
     {:ok, bucket} = KV.Registry.lookup(KV.Registry, "shopping")
 
     Agent.stop(bucket, :shutdown)
+    _ = KV.Registry.create(registry, "ensure_registry_processed_down_message")
     assert KV.Registry.lookup(KV.Registry, "shopping") == :error
   end
 end
