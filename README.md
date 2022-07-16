@@ -1,21 +1,20 @@
-# KV
+# Key-Value State Management
 
-**TODO: Add description**
+Based on the official Elixir website's "Mix and OTP" guide, 
+available <a href="https://elixir-lang.org/getting-started/introduction.html">here</a>.
 
-## Installation
+The template was created using the command:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `kv` to your list of dependencies in `mix.exs`:
+``` mix new kv --module KV ```
 
-```elixir
-def deps do
-  [
-    {:kv, "~> 0.1.0"}
-  ]
-end
-```
+To compile, use:
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/kv>.
+``` mix compile ```
 
+To run tests, use:
+
+``` mix test ```
+
+To launch Elixir Interactive Shell, use:
+
+``` iex -S mix ```
