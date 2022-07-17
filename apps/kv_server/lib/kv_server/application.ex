@@ -9,7 +9,6 @@ defmodule KVServer.Application do
       Supervisor.child_spec({Task, fn -> KVServer.accept(port) end}, restart: :permanent)
     ]
 
-    :observer.start()
     opts = [strategy: :one_for_one, name: KVServer.Supervisor]
     Supervisor.start_link(children, opts)
   end
