@@ -29,6 +29,11 @@ defmodule KVServer.Command do
       {:error, :unknown_command}
 
   """
+
+  def run(command) do
+    {:ok, "OK\r\n"}
+  end
+
   def parse(line) do
     case String.split(line) do
       ["CREATE", bucket] -> {:ok, {:create, bucket}}
