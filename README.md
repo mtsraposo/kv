@@ -1,4 +1,4 @@
-# Key-Value State Management
+# Key-Value Store
 
 Based on the official Elixir website's "Mix and OTP" guide, 
 available <a href="https://elixir-lang.org/getting-started/introduction.html">here</a>.
