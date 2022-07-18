@@ -21,3 +21,11 @@ To run distributed tests:
 To launch Elixir Interactive Shell, use:
 - `iex -S mix`
 
+To create a release name `foo` in production:
+- `MIX_ENV=prod mix release foo`
+
+To start a production release named foo:
+- `_build/prod/rel/foo/bin/foo start`
+
+To connect to the application (from another shell instance):
+- `telnet 127.0.0.1 4040` or `nc 127.0.0.1 4040`
