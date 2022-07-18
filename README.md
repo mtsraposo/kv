@@ -16,7 +16,7 @@ To run distributed tests:
 - First, start a node with 
   - `iex --sname bar -S mix`
 - Then, run tests on another shell with 
-  - `elixir --sname foo -S mix test`
+  - `elixir --sname foo -S mix test --only distributed`
 
 To launch Elixir Interactive Shell, use:
 - `iex -S mix`

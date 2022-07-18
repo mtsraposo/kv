@@ -1,8 +1,16 @@
 defmodule KV.RouterTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case
 
-  setup do
-    {:ok, hostname} = :inet.gethostname()
+  setup_all do
+    current = Application.get_env(:kv, :routing_table)
+    hostname = Application.get_env(:kv, :hostname)
+
+    Application.put_env(:kv, :routing_table, [
+      {?a..?m, :"foo@#{hostname}"},
+      {?n..?z, :"bar@#{hostname}"}
+    ])
+
+    on_exit fn -> Application.put_env(:kv, :routing_table, current) end
     %{hostname: hostname}
   end
 

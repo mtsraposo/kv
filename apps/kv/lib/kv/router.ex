@@ -1,6 +1,4 @@
 defmodule KV.Router do
-    @hostname elem(:inet.gethostname(), 1)
-
     @doc """
     Dispatch the given `mod`, `fun`, `args` request
     to the appropriate node based on the `bucket`.
@@ -25,6 +23,6 @@ defmodule KV.Router do
     end
 
     def table() do
-      [{?a..?m, :"foo@#{@hostname}"}, {?n..?z, :"bar@#{@hostname}"}]
+      Application.fetch_env!(:kv, :routing_table)
     end
 end
