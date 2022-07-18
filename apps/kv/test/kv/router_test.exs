@@ -6,6 +6,7 @@ defmodule KV.RouterTest do
     %{hostname: hostname}
   end
 
+  @tag :distributed
   test "route requests across nodes", %{hostname: hostname} do
     assert KV.Router.route("hello", Kernel, :node, []) == :"foo@#{hostname}"
     assert KV.Router.route("world", Kernel, :node, []) == :"bar@#{hostname}"
